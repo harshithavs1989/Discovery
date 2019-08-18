@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -32,7 +31,8 @@ public class MyvideosPage
 		String basePath = System.getProperty("user.dir");
 		ReadPropertiesFile.setFilePath(basePath + "/src/main/resources/config.properties");
 		driver.get(ReadPropertiesFile.getValue("myvideosurl"));
-		if(driver.getTitle().equals("My Videos | Discovery"))
+		
+		if(driver.getTitle().equals(ReadPropertiesFile.getValue("myvidoestitle")))
 			return true;
 		return false;
 	}

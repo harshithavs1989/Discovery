@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -12,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.discovery.actions.DoWebAction;
+import com.discovery.utils.ReadPropertiesFile;
 
 public class HomePage 
 {
@@ -37,7 +37,9 @@ public class HomePage
 	public boolean validateHomePageTitle()
 	{
 		log.info("Verifying the title of home page");
-		if(driver.getTitle().equals("Discovery - Official Site"))
+		String basePath = System.getProperty("user.dir");
+		ReadPropertiesFile.setFilePath(basePath + "/src/main/resources/config.properties");
+		if(driver.getTitle().equals(ReadPropertiesFile.getValue("homepagetitle")))
 			return true;
 		return false;
 	}
