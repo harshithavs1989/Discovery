@@ -19,6 +19,8 @@ public class AddVideo
 {
 	
 	@SuppressWarnings("unused")
+	
+	
 	private Controller controller;
 	private Context context;
 	Map<String, Object> testContext = null;
@@ -133,8 +135,8 @@ public class AddVideo
         Assert.assertEquals(titleOfFirstVideoInFavVideoSection, context.getValue("firstVideoTitle"));
     }
 
-    @Then("^The description of the first video should match with the title of first recommended video of home page$")
-    public void the_description_of_the_first_video_should_match_with_the_title_of_first_recommended_video_of_home_page() throws Throwable {
+    @Then("^The description of the first video should match with the description of first recommended video of home page$")
+    public void the_description_of_the_first_video_should_match_with_the_description_of_first_recommended_video_of_home_page() throws Throwable {
         String descriptionOfFirstVideoInFavVideoSection = myvideosPage.getDescription("1");
         Assert.assertEquals(descriptionOfFirstVideoInFavVideoSection, context.getValue("firstVideoDescription"));
     }
@@ -151,9 +153,9 @@ public class AddVideo
         Assert.assertEquals(secondVidoeTitleInFavVideoSection, context.getValue("secondVideoTitle"));
     }
     
-    @Then("^The description of the first video should match with the title of second recommended video of home page$")
-    public void the_description_of_the_first_video_should_match_with_the_title_of_second_recommended_video_of_home_page() throws Throwable {
-        String descriptionOfSecondVideoInFavVideoSection = myvideosPage.getDescription("1");
+    @Then("^The description of the second video should match with the description of second recommended video of home page$")
+    public void the_description_of_the_second_video_should_match_with_the_description_of_second_recommended_video_of_home_page() throws Throwable {
+        String descriptionOfSecondVideoInFavVideoSection = myvideosPage.getDescription("2");
         Assert.assertEquals(descriptionOfSecondVideoInFavVideoSection, context.getValue("secondVideoDescription"));
     }
     
